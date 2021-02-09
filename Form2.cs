@@ -50,5 +50,12 @@ namespace LANTournamentManager
             p.setTag(textBox2.Text);
             p.setParticipates(checkBox1.Checked);
         }
+
+        private void button2_Click(object sender, System.EventArgs e)
+        {
+            textBox1.Text = p.getName();
+            textBox2.Text = p.getTag();
+            checkBox1.Checked = p.getParticipates();
+        }
     }
 }

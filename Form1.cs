@@ -7,8 +7,11 @@ namespace LANTournamentManager
     {
         string fileName = "";
         readonly string windowTitle = "LANTournamentManager";
-        string serverAddress = "";
+        string serverAddress = "localhost";
         private Tournament t;
+        private int playernum = 0;
+        private int status = 0; // see Tournament.cs
+
 
         public Form1()
         {
@@ -36,7 +39,7 @@ namespace LANTournamentManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            updateStatusBar();
+            updateView();
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e) { }
@@ -78,13 +81,13 @@ namespace LANTournamentManager
 
         private void teilnehmenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            teilnehmenToolStripMenuItem.Checked = t.getPlayer(playernum).getParticipates();
             if (t.getStatus() != 1)
-            {
-                teilnehmenToolStripMenuItem.Checked = !teilnehmenToolStripMenuItem.Checked;
-            }
+            { teilnehmenToolStripMenuItem.Enabled = true; }
+            else { teilnehmenToolStripMenuItem.Enabled = false; }
         }
 
-        private void updateStatusBar()
+        private void updateView()
         {
             string newStatus = "";
             switch (t.getStatus())
@@ -108,19 +111,30 @@ namespace LANTournamentManager
 
         private void eigeneAngabenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 playerForm = new Form2(this);
-            playerForm.loadPlayer(t.getPlayer(0), false);
-            playerForm.Show();
-            if
-            playerForm.updateView();
-
+            openPlayerForm(t.getPlayer(playernum));
         }
 
-        public Tournament getTournament() => t;
+        public void openPlayerForm(Player p) {
+
+            Form2 playerForm = new Form2(this);
+        playerForm.loadPlayer(p, true);
+            playerForm.Show();
+            playerForm.updateView();
+}
+
+    public Tournament getTournament() => t;
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void turnierStartenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.Write("test");
+            t.setStatus(2);
+            status = 2;
+            updateView();
         }
     }
 }

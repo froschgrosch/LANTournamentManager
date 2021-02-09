@@ -136,6 +136,7 @@ namespace LANTournamentManager
             this.button2.TabIndex = 6;
             this.button2.Text = "Verwerfen";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -277,6 +278,8 @@ namespace LANTournamentManager
             this.ClientSize = new System.Drawing.Size(356, 247);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximumSize = new System.Drawing.Size(372, 286);
+            this.MinimumSize = new System.Drawing.Size(372, 286);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);

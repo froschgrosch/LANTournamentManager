@@ -30,20 +30,24 @@ namespace LANTournamentManager
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -64,16 +68,12 @@ namespace LANTournamentManager
             this.button16 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -143,6 +143,74 @@ namespace LANTournamentManager
             this.splitContainer1.SplitterDistance = 265;
             this.splitContainer1.TabIndex = 0;
             // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(67, 442);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.ReadOnly = true;
+            this.textBox16.Size = new System.Drawing.Size(129, 20);
+            this.textBox16.TabIndex = 45;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(67, 329);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(129, 20);
+            this.textBox12.TabIndex = 41;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(67, 213);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(129, 20);
+            this.textBox8.TabIndex = 37;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(67, 97);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(129, 20);
+            this.textBox4.TabIndex = 35;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(202, 414);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(60, 23);
+            this.button15.TabIndex = 15;
+            this.button15.Text = "Ansehen";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(202, 327);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(60, 23);
+            this.button12.TabIndex = 12;
+            this.button12.Text = "Ansehen";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(202, 240);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(60, 23);
+            this.button9.TabIndex = 9;
+            this.button9.Text = "Ansehen";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(202, 153);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(60, 23);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "Ansehen";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
             // textBox13
             // 
             this.textBox13.Location = new System.Drawing.Point(67, 358);
@@ -166,14 +234,6 @@ namespace LANTournamentManager
             this.textBox15.ReadOnly = true;
             this.textBox15.Size = new System.Drawing.Size(129, 20);
             this.textBox15.TabIndex = 46;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(67, 442);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(129, 20);
-            this.textBox16.TabIndex = 45;
             // 
             // textBox9
             // 
@@ -199,14 +259,6 @@ namespace LANTournamentManager
             this.textBox11.Size = new System.Drawing.Size(129, 20);
             this.textBox11.TabIndex = 42;
             // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(67, 329);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(129, 20);
-            this.textBox12.TabIndex = 41;
-            // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(67, 126);
@@ -231,14 +283,6 @@ namespace LANTournamentManager
             this.textBox7.Size = new System.Drawing.Size(129, 20);
             this.textBox7.TabIndex = 38;
             // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(67, 213);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(129, 20);
-            this.textBox8.TabIndex = 37;
-            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(67, 68);
@@ -246,14 +290,6 @@ namespace LANTournamentManager
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(129, 20);
             this.textBox3.TabIndex = 36;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(67, 97);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(129, 20);
-            this.textBox4.TabIndex = 35;
             // 
             // textBox2
             // 
@@ -433,15 +469,6 @@ namespace LANTournamentManager
             this.button14.Text = "Ansehen";
             this.button14.UseVisualStyleBackColor = true;
             // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(202, 414);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(60, 23);
-            this.button15.TabIndex = 15;
-            this.button15.Text = "Ansehen";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
             // button10
             // 
             this.button10.Location = new System.Drawing.Point(202, 269);
@@ -459,15 +486,6 @@ namespace LANTournamentManager
             this.button11.TabIndex = 13;
             this.button11.Text = "Ansehen";
             this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(202, 327);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(60, 23);
-            this.button12.TabIndex = 12;
-            this.button12.Text = "Ansehen";
-            this.button12.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
@@ -487,15 +505,6 @@ namespace LANTournamentManager
             this.button8.Text = "Ansehen";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(202, 240);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(60, 23);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "Ansehen";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(202, 95);
@@ -514,15 +523,6 @@ namespace LANTournamentManager
             this.button5.Text = "Ansehen";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(202, 153);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(60, 23);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Ansehen";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(202, 66);
@@ -540,6 +540,7 @@ namespace LANTournamentManager
             this.button2.TabIndex = 3;
             this.button2.Text = "Ansehen";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -549,6 +550,7 @@ namespace LANTournamentManager
             this.button1.TabIndex = 1;
             this.button1.Text = "Ansehen";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -565,6 +567,8 @@ namespace LANTournamentManager
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 470);
             this.Controls.Add(this.splitContainer1);
+            this.MaximumSize = new System.Drawing.Size(746, 509);
+            this.MinimumSize = new System.Drawing.Size(746, 509);
             this.Name = "Form3";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);

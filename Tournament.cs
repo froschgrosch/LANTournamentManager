@@ -6,7 +6,7 @@ namespace LANTournamentManager
     {
         byte tournamentStatus = 0; /*
                                    * current status of the tournament
-                                   * 0: not connected
+                                   * 0: not connected (client only)
                                    * 1: waiting
                                    * 2: running
                                    * 3: finished */
@@ -24,6 +24,7 @@ namespace LANTournamentManager
         }
 
         public int getStatus() => tournamentStatus;
+        public void setStatus(byte i) => tournamentStatus = i;
         public String getName() => name;
         public String getGame() => game;
         public Player[] getPlayers() => players;
