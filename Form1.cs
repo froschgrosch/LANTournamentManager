@@ -5,11 +5,10 @@ namespace LANTournamentManager
 {
     public partial class Form1 : Form
     {
-        Player p;
         string fileName = "";
         readonly string windowTitle = "LANTournamentManager";
-        Boolean tournamentHasStarted = false;
-        Boolean isConnected = false;
+        string serverAddress = "";
+        string tournamentName = "";
 
         public Form1()
         {
@@ -26,10 +25,13 @@ namespace LANTournamentManager
             this.Text = windowTitle;
 
             // Program
-            p = new Player("Simon", "froschgrosch", 0);
+            p = new Player(0);
         }
 
-        private void Form1_Load(object sender, EventArgs e) { }
+        private void Form1_Load(object sender, EventArgs e) {
+            updateStatusBar();
+        }
+
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e) { }
         private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e) { }
 
@@ -57,19 +59,48 @@ namespace LANTournamentManager
         private void verbindenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("connect");
-
+            serverAddress = "peepeepoopoo";
         }
 
         private void spielerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("connect");
-            Form2 playerForm = new Form2(this, p);
-            playerForm.Show();
+            Form3 listForm= new Form3(this.Text); // this, p, false
+            listForm.Show();
         }
 
         private void teilnehmenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!tournamentHasStarted)
+            if (tournamentStatus != 1)
+            {
+                teilnehmenToolStripMenuItem.Checked = !teilnehmenToolStripMenuItem.Checked;
+            }
+        }
+
+        private void updateStatusBar()
+        {
+            string newStatus = "";
+            switch (tournamentStatus)
+            {
+                case 0: // not connected
+                    newStatus = "Nicht verbunden";
+                    break;
+                case 1: // waiting
+                    newStatus = serverAddress + " - Warten auf Turnierbeginn";
+                    break;
+                case 2:  // active
+                    newStatus = serverAddress + " - Turnier läuft";
+                    break;
+                case 3:
+                    newStatus = serverAddress + " - Turnier abgeschlossen";
+                    break;
+
+            }
+            toolStripStatusLabel1.Text = newStatus;
+        }
+
+        private void eigeneAngabenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tournamentStatus != 1)
             {
                 teilnehmenToolStripMenuItem.Checked = !teilnehmenToolStripMenuItem.Checked;
             }

@@ -12,7 +12,7 @@
          *  3 - Deaths */
         int id;
 
-        public Player(string name, string tag, int id)
+        public Player(int id)
         {
             this.name = name;
             this.tag = tag;
@@ -24,19 +24,11 @@
             }
         }
 
-        public string getName()
-        {
-            return name;
-        }
-
-        public string getTag()
-        {
-            return tag;
-        }
-
-        public int[] getScore()
-        {
-            return score;
-        }
+        public string getName() => name;
+        public void setName(string name) => this.name = name;
+        public string getTag() => tag;
+        public void setTag(string tag) => this.tag = tag;
+        public int[] getScore() => score;
+        public void increaseScore(int index, int amount) => score[index] += amount;
     }
 }
