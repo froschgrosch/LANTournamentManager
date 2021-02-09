@@ -11,11 +11,10 @@
          *  2 - kills
          *  3 - Deaths */
         int id;
+        bool participates = true; // does participate
 
         public Player(int id)
         {
-            this.name = name;
-            this.tag = tag;
             this.id = id;
             score = new int[4];
             for (int i = 0; i < score.Length; i++)
@@ -24,11 +23,15 @@
             }
         }
 
+        public int getId() => id;
+        public void lowerId() => id--;
         public string getName() => name;
         public void setName(string name) => this.name = name;
         public string getTag() => tag;
         public void setTag(string tag) => this.tag = tag;
         public int[] getScore() => score;
         public void increaseScore(int index, int amount) => score[index] += amount;
+        public bool getParticipates() => participates;
+        public void setParticipates(bool newValue) => participates = newValue;
     }
 }

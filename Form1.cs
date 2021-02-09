@@ -8,7 +8,7 @@ namespace LANTournamentManager
         string fileName = "";
         readonly string windowTitle = "LANTournamentManager";
         string serverAddress = "";
-        string tournamentName = "";
+        private Tournament t;
 
         public Form1()
         {
@@ -24,11 +24,18 @@ namespace LANTournamentManager
 
             this.Text = windowTitle;
 
-            // Program
-            p = new Player(0);
+            t = new Tournament(16, "q3test", "Quake 3");
+            Player pTemp;
+            for (int i = 0; i < 16; i++)
+            {
+                pTemp = new Player(i);
+                pTemp.setName(i.ToString());
+                t.addPlayer(pTemp);
+            }
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
+        private void Form1_Load(object sender, EventArgs e)
+        {
             updateStatusBar();
         }
 
@@ -64,13 +71,14 @@ namespace LANTournamentManager
 
         private void spielerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 listForm= new Form3(this.Text); // this, p, false
+            Form3 listForm = new Form3(this); // this, p, false
             listForm.Show();
+            listForm.updateWindow();
         }
 
         private void teilnehmenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (tournamentStatus != 1)
+            if (t.getStatus() != 1)
             {
                 teilnehmenToolStripMenuItem.Checked = !teilnehmenToolStripMenuItem.Checked;
             }
@@ -79,7 +87,7 @@ namespace LANTournamentManager
         private void updateStatusBar()
         {
             string newStatus = "";
-            switch (tournamentStatus)
+            switch (t.getStatus())
             {
                 case 0: // not connected
                     newStatus = "Nicht verbunden";
@@ -100,10 +108,19 @@ namespace LANTournamentManager
 
         private void eigeneAngabenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (tournamentStatus != 1)
-            {
-                teilnehmenToolStripMenuItem.Checked = !teilnehmenToolStripMenuItem.Checked;
-            }
+            Form2 playerForm = new Form2(this);
+            playerForm.loadPlayer(t.getPlayer(0), false);
+            playerForm.Show();
+            if
+            playerForm.updateView();
+
+        }
+
+        public Tournament getTournament() => t;
+
+        private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

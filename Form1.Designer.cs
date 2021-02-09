@@ -82,34 +82,35 @@ namespace LANTournamentManager
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.neuToolStripMenuItem.Text = "Neu";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click_1);
             // 
             // öffnenToolStripMenuItem
             // 
             this.öffnenToolStripMenuItem.Name = "öffnenToolStripMenuItem";
-            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.öffnenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.öffnenToolStripMenuItem.Text = "Öffnen";
             this.öffnenToolStripMenuItem.Click += new System.EventHandler(this.öffnenToolStripMenuItem_Click);
             // 
             // speichernToolStripMenuItem
             // 
             this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
-            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.speichernToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.speichernToolStripMenuItem.Text = "Speichern";
             this.speichernToolStripMenuItem.Click += new System.EventHandler(this.speichernToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(123, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.beendenToolStripMenuItem.Text = "Beenden";
+            this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
             // netzwerkToolStripMenuItem
             // 
@@ -162,7 +163,7 @@ namespace LANTournamentManager
             // spielerToolStripMenuItem
             // 
             this.spielerToolStripMenuItem.Name = "spielerToolStripMenuItem";
-            this.spielerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.spielerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.spielerToolStripMenuItem.Text = "Spieler";
             this.spielerToolStripMenuItem.Click += new System.EventHandler(this.spielerToolStripMenuItem_Click);
             // 
@@ -185,12 +186,12 @@ namespace LANTournamentManager
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // turnierStartenToolStripMenuItem
             // 
             this.turnierStartenToolStripMenuItem.Name = "turnierStartenToolStripMenuItem";
-            this.turnierStartenToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.turnierStartenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.turnierStartenToolStripMenuItem.Text = "Turnier starten";
             // 
             // openFileDialog1
