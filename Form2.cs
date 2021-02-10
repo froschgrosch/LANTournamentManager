@@ -25,6 +25,8 @@ namespace LANTournamentManager
 
         public void updateView()
         {
+            this.Text = mainForm.Text + " - " + p.getName();
+
             textBox1.Text = p.getName();
             textBox2.Text = p.getTag();
             checkBox1.Checked = p.getParticipates();
@@ -46,16 +48,26 @@ namespace LANTournamentManager
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            p.setName(textBox1.Text);
+            if (textBox1.TextLength >= 3)
+            {
+                p.setName(textBox1.Text);
+                updateView();
+            }
             p.setTag(textBox2.Text);
-            p.setParticipates(checkBox1.Checked);
+            // mainForm.updateView();
+
         }
 
         private void button2_Click(object sender, System.EventArgs e)
         {
             textBox1.Text = p.getName();
             textBox2.Text = p.getTag();
-            checkBox1.Checked = p.getParticipates();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, System.EventArgs e)
+        {
+            p.setParticipates(checkBox1.Checked);
+            mainForm.updateView();
         }
     }
 }

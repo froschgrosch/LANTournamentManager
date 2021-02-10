@@ -10,7 +10,7 @@
          *  1 - losses
          *  2 - kills
          *  3 - Deaths */
-        int id;
+        int id; // 0 is host
         bool participates = true; // does participate
 
         public Player(int id)
@@ -24,6 +24,7 @@
         }
 
         public int getId() => id;
+        public void setId(int id) => this.id = id;
         public void lowerId() => id--;
         public string getName() => name;
         public void setName(string name) => this.name = name;

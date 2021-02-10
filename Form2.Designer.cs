@@ -117,6 +117,7 @@ namespace LANTournamentManager
             this.checkBox1.TabIndex = 8;
             this.checkBox1.Text = "Nimmt teil:";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // button3
             // 
@@ -201,7 +202,7 @@ namespace LANTournamentManager
             this.textBox6.Location = new System.Drawing.Point(223, 17);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.Size = new System.Drawing.Size(103, 20);
             this.textBox6.TabIndex = 13;
             // 
             // textBox7
@@ -209,7 +210,7 @@ namespace LANTournamentManager
             this.textBox7.Location = new System.Drawing.Point(223, 43);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.Size = new System.Drawing.Size(103, 20);
             this.textBox7.TabIndex = 12;
             // 
             // textBox8
@@ -217,7 +218,7 @@ namespace LANTournamentManager
             this.textBox8.Location = new System.Drawing.Point(223, 94);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.Size = new System.Drawing.Size(103, 20);
             this.textBox8.TabIndex = 11;
             // 
             // label5
@@ -275,11 +276,9 @@ namespace LANTournamentManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 247);
+            this.ClientSize = new System.Drawing.Size(356, 261);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.MaximumSize = new System.Drawing.Size(372, 286);
-            this.MinimumSize = new System.Drawing.Size(372, 286);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);

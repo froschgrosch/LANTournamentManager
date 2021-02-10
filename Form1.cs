@@ -5,13 +5,21 @@ namespace LANTournamentManager
 {
     public partial class Form1 : Form
     {
-        string fileName = "";
-        readonly string windowTitle = "LANTournamentManager";
-        string serverAddress = "localhost";
-        private Tournament t;
-        private int playernum = 0;
-        private int status = 0; // see Tournament.cs
+        readonly string windowTitle = "LANTourney";
+        string fileName = ".trn";
+        string serverAddress = "";
 
+        bool connected = false;
+
+        // readonly int defaultPort = 26077;
+
+
+        private Server s;
+        private Client c;
+
+        Form2 playerForm;
+        Form3 listForm;
+        Form4 serverForm;
 
         public Form1()
         {
@@ -27,23 +35,61 @@ namespace LANTournamentManager
 
             this.Text = windowTitle;
 
-            t = new Tournament(16, "q3test", "Quake 3");
-            Player pTemp;
-            for (int i = 0; i < 16; i++)
+            c = new Client();
+            c.setId(0);
+        }
+
+        private Player getPlayer()
+        {
+            Player p;
+            if (s == null)
             {
-                pTemp = new Player(i);
-                pTemp.setName(i.ToString());
-                t.addPlayer(pTemp);
+                p = c.getPlayer();
             }
+            else
+            {
+                p = getTournament().getPlayer(c.getId());
+            }
+            return p;
+        }
+
+        private void setPlayer(Player p)
+        {
+            if (s == null)
+            {
+                c.setPlayer(p);
+            }
+            else
+            {
+                getTournament().setPlayer(p, p.getId());
+            }
+        }
+
+        public string getServerAddress()
+        {
+            string output = "";
+            if (c.getId() == 0)
+            {
+                output = "localhost";
+            }
+            else
+            {
+                output = serverAddress;
+            }
+            return output;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             updateView();
+            playerForm = new Form2(this);
+            listForm = new Form3(this);
+            serverForm = new Form4(this);
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e) { }
         private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e) { }
+        public Tournament getTournament() => s.getTournament();
 
         private void neuToolStripMenuItem_Click_1(object sender, EventArgs e) // new file
         {
@@ -68,73 +114,134 @@ namespace LANTournamentManager
 
         private void verbindenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("connect");
-            serverAddress = "peepeepoopoo";
+            setConnected(true);
         }
 
-        private void spielerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void serverStartenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 listForm = new Form3(this); // this, p, false
-            listForm.Show();
-            listForm.updateWindow();
+            serverForm.Show();
+            serverForm.Focus();
+            serverForm.updateView();
         }
+
+
+        public void openListForm()
+        {
+            if (s != null)
+            {
+                listForm.Show();
+                listForm.Focus();
+                listForm.updateView();
+            }
+        }
+
+        public void openPlayerForm(Player p)
+        {
+            playerForm.loadPlayer(p, p.getId() != c.getId());
+            playerForm.Show();
+            playerForm.Focus();
+            playerForm.updateView();
+        }
+
+        private void spielerToolStripMenuItem_Click(object sender, EventArgs e) { openListForm(); }
 
         private void teilnehmenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            teilnehmenToolStripMenuItem.Checked = t.getPlayer(playernum).getParticipates();
-            if (t.getStatus() != 1)
-            { teilnehmenToolStripMenuItem.Enabled = true; }
-            else { teilnehmenToolStripMenuItem.Enabled = false; }
+            teilnehmenToolStripMenuItem.Checked = !teilnehmenToolStripMenuItem.Checked;
+            Player p = getPlayer();
+            p.setParticipates(teilnehmenToolStripMenuItem.Checked);
+            setPlayer(p);
         }
 
-        private void updateView()
+        public void setConnected(bool b)
+        {
+            connected = b;
+            if (b)
+            {
+                verbindenToolStripMenuItem.Enabled = false;
+                if (getPlayer().getId() != 0) // we are host
+                {
+                    verbindungTrennenToolStripMenuItem.Enabled = false;
+                }
+                else
+                {
+                    verbindungTrennenToolStripMenuItem.Enabled = true;
+                }
+                verbindenToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                verbindenToolStripMenuItem.Enabled = true;
+                verbindungTrennenToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        public void updateView()
         {
             string newStatus = "";
-            switch (t.getStatus())
+            switch (c.getStatus())
             {
-                case 0: // not connected
+                case 0:
                     newStatus = "Nicht verbunden";
                     break;
                 case 1: // waiting
-                    newStatus = serverAddress + " - Warten auf Turnierbeginn";
+                    newStatus = getServerAddress() + " - Warten auf Turnierbeginn";
+                    teilnehmenToolStripMenuItem.Enabled = true;
                     break;
                 case 2:  // active
-                    newStatus = serverAddress + " - Turnier läuft";
+                    newStatus = getServerAddress() + " - Turnier läuft";
+                    teilnehmenToolStripMenuItem.Enabled = false;
                     break;
                 case 3:
-                    newStatus = serverAddress + " - Turnier abgeschlossen";
+                    newStatus = getServerAddress() + " - Turnier abgeschlossen";
+                    teilnehmenToolStripMenuItem.Enabled = true;
                     break;
-
             }
             toolStripStatusLabel1.Text = newStatus;
+            teilnehmenToolStripMenuItem.Checked = getPlayer().getParticipates();
+            verbindungTrennenToolStripMenuItem.Enabled = c.isConnected();
         }
 
         private void eigeneAngabenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openPlayerForm(t.getPlayer(playernum));
+            openPlayerForm(getPlayer());
         }
 
-        public void openPlayerForm(Player p) {
-
-            Form2 playerForm = new Form2(this);
-        playerForm.loadPlayer(p, true);
-            playerForm.Show();
-            playerForm.updateView();
-}
-
-    public Tournament getTournament() => t;
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // TODO: add prompt to save unsaved changes
+            Environment.Exit(0);
         }
 
-        private void turnierStartenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void turnierStarten()
         {
-            System.Diagnostics.Debug.Write("test");
-            t.setStatus(2);
-            status = 2;
-            updateView();
+            if (s != null)
+            {
+                s.setStatus(2);
+                c.setStatus(2);
+                updateView();
+            }
+        }
+
+        public void startServer(Form4 form)
+        {
+            string hostname = form.getHostname();
+            string game = form.getGame();
+            int port = form.getPort();
+            int maxClients = form.getMaxClients();
+
+            System.Diagnostics.Debug.WriteLine(port);
+            System.Diagnostics.Debug.WriteLine(maxClients);
+            System.Diagnostics.Debug.WriteLine(hostname);
+            System.Diagnostics.Debug.WriteLine(game);
+
+            s = new Server(16, 20000, "name", "game");
+        }
+
+        public void stopServer()
+        {
+
         }
     }
 }

@@ -39,20 +39,18 @@ namespace LANTournamentManager
             this.netzwerkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verbindenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verbindungTrennenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.serverStartenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.turnierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spielerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teilnehmenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eigeneAngabenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.turnierStartenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -120,8 +118,6 @@ namespace LANTournamentManager
             this.verbindenToolStripMenuItem,
             this.verbindungTrennenToolStripMenuItem,
             this.toolStripSeparator3,
-            this.statusToolStripMenuItem,
-            this.toolStripSeparator4,
             this.serverStartenToolStripMenuItem});
             this.netzwerkToolStripMenuItem.Name = "netzwerkToolStripMenuItem";
             this.netzwerkToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
@@ -140,17 +136,17 @@ namespace LANTournamentManager
             this.verbindungTrennenToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.verbindungTrennenToolStripMenuItem.Text = "Verbindung trennen";
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(176, 6);
+            // 
             // serverStartenToolStripMenuItem
             // 
             this.serverStartenToolStripMenuItem.Name = "serverStartenToolStripMenuItem";
             this.serverStartenToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.serverStartenToolStripMenuItem.Text = "Server starten";
-            // 
-            // statusToolStripMenuItem
-            // 
-            this.statusToolStripMenuItem.Name = "statusToolStripMenuItem";
-            this.statusToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.statusToolStripMenuItem.Text = "Status";
+            this.serverStartenToolStripMenuItem.Text = "Server";
+            this.serverStartenToolStripMenuItem.Click += new System.EventHandler(this.serverStartenToolStripMenuItem_Click);
             // 
             // turnierToolStripMenuItem
             // 
@@ -159,15 +155,16 @@ namespace LANTournamentManager
             this.teilnehmenToolStripMenuItem,
             this.eigeneAngabenToolStripMenuItem,
             this.toolStripSeparator2,
-            this.turnierStartenToolStripMenuItem});
+            this.toolStripMenuItem2});
             this.turnierToolStripMenuItem.Name = "turnierToolStripMenuItem";
             this.turnierToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.turnierToolStripMenuItem.Text = "Turnier";
             // 
             // spielerToolStripMenuItem
             // 
+            this.spielerToolStripMenuItem.Enabled = false;
             this.spielerToolStripMenuItem.Name = "spielerToolStripMenuItem";
-            this.spielerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.spielerToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.spielerToolStripMenuItem.Text = "Spieler";
             this.spielerToolStripMenuItem.Click += new System.EventHandler(this.spielerToolStripMenuItem_Click);
             // 
@@ -176,28 +173,16 @@ namespace LANTournamentManager
             this.teilnehmenToolStripMenuItem.Checked = true;
             this.teilnehmenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.teilnehmenToolStripMenuItem.Name = "teilnehmenToolStripMenuItem";
-            this.teilnehmenToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.teilnehmenToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.teilnehmenToolStripMenuItem.Text = "Teilnehmen";
             this.teilnehmenToolStripMenuItem.Click += new System.EventHandler(this.teilnehmenToolStripMenuItem_Click);
             // 
             // eigeneAngabenToolStripMenuItem
             // 
             this.eigeneAngabenToolStripMenuItem.Name = "eigeneAngabenToolStripMenuItem";
-            this.eigeneAngabenToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.eigeneAngabenToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.eigeneAngabenToolStripMenuItem.Text = "Eigene Angaben";
             this.eigeneAngabenToolStripMenuItem.Click += new System.EventHandler(this.eigeneAngabenToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
-            // 
-            // turnierStartenToolStripMenuItem
-            // 
-            this.turnierStartenToolStripMenuItem.Name = "turnierStartenToolStripMenuItem";
-            this.turnierStartenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.turnierStartenToolStripMenuItem.Text = "Turnier starten";
-            this.turnierStartenToolStripMenuItem.Click += new System.EventHandler(this.turnierStartenToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -225,15 +210,16 @@ namespace LANTournamentManager
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(44, 17);
             this.toolStripStatusLabel1.Text = "default";
             // 
-            // toolStripSeparator3
+            // toolStripSeparator2
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(179, 6);
             // 
-            // toolStripSeparator4
+            // toolStripMenuItem2
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(182, 22);
+            this.toolStripMenuItem2.Text = "Turniereinstellungen";
             // 
             // Form1
             // 
@@ -271,18 +257,16 @@ namespace LANTournamentManager
         private System.Windows.Forms.ToolStripMenuItem netzwerkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verbindenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verbindungTrennenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serverStartenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem turnierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spielerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem teilnehmenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eigeneAngabenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem turnierStartenToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
 
