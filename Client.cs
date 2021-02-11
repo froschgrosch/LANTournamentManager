@@ -9,6 +9,8 @@
         int status = 0; // see Tournament.cs
         int id = 0;
 
+        messageListener listener;
+
         public Client()
         {
             p.setName("Name");
@@ -22,9 +24,10 @@
         public void setStatus(int status) => this.status = status;
         public int getId() => p.getId();
         public void setId(int id) => p.setId(id);
-        public Player getPlayer() {
+        public Player getPlayer()
+        {
             Player pl = p;
-            if (true)
+            if (status != 0)
             {
 
             }
@@ -34,7 +37,15 @@
 
         public Tournament getTournament() => t;
 
+        private Tournament getServerTournament()
+        {
+            return t;
+        }
 
+        public void connect()
+        {
+
+        }
 
     }
 }

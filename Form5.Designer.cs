@@ -65,6 +65,11 @@ namespace LANTournamentManager
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(73, 36);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            65536,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(110, 20);
             this.numericUpDown1.TabIndex = 3;
@@ -77,6 +82,7 @@ namespace LANTournamentManager
             this.button1.TabIndex = 4;
             this.button1.Text = "Verbinden";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form5
             // 

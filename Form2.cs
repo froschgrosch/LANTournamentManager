@@ -69,5 +69,14 @@ namespace LANTournamentManager
             p.setParticipates(checkBox1.Checked);
             mainForm.updateView();
         }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
+        }
     }
 }

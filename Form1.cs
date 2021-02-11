@@ -11,8 +11,7 @@ namespace LANTournamentManager
 
         bool connected = false;
 
-        // readonly int defaultPort = 26077;
-
+        public readonly int defaultPort = 26077;
 
         private Server s;
         private Client c;
@@ -20,6 +19,7 @@ namespace LANTournamentManager
         Form2 playerForm;
         Form3 listForm;
         Form4 serverForm;
+        Form5 connectForm;
 
         public Form1()
         {
@@ -85,6 +85,7 @@ namespace LANTournamentManager
             playerForm = new Form2(this);
             listForm = new Form3(this);
             serverForm = new Form4(this);
+            connectForm = new Form5(this);
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e) { }
@@ -114,7 +115,9 @@ namespace LANTournamentManager
 
         private void verbindenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            setConnected(true);
+            //setConnected(true);
+            connectForm.Show();
+            connectForm.Focus();
         }
 
         private void serverStartenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,7 +184,7 @@ namespace LANTournamentManager
             string newStatus = "";
             switch (c.getStatus())
             {
-                case 0:
+                case 0: // notConnected
                     newStatus = "Nicht verbunden";
                     break;
                 case 1: // waiting
@@ -211,6 +214,7 @@ namespace LANTournamentManager
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // TODO: add prompt to save unsaved changes
+            stopServer();
             Environment.Exit(0);
         }
 
@@ -236,10 +240,28 @@ namespace LANTournamentManager
             System.Diagnostics.Debug.WriteLine(hostname);
             System.Diagnostics.Debug.WriteLine(game);
 
-            s = new Server(16, 20000, "name", "game");
+            if (s == null)
+            {
+                s = new Server(16, 20000, "name", "game");
+            }
+            else
+            {
+                s.changeProperties(16, 20000, "name", "game");
+            }
         }
 
         public void stopServer()
+        {
+            s.stopServer();
+        }
+
+        public void clientConnect(String ip, int port)
+        {
+            connectForm.Hide();
+            MessageBox.Show(ip);
+        }
+
+        public void clientDisconnect()
         {
 
         }
