@@ -155,9 +155,9 @@
             //tcpClientConnected.Set();
         }
 
-        public string handleMessage()
+        public string handleMessage(string message) // send output back to client
         {
-
+            return "";
         }
 
         public void stopListening()
